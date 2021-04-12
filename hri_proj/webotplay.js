@@ -6,6 +6,11 @@ var isCheat = false;
 var yourMove;
 // var webotMove;
 
+window.onload = function(){
+    document.getElementById("webot").innerHTML = "0";
+    document.getElementById("you").innerHTML = "0";
+    document.getElementById("message").innerHTML = message;
+};
 
 
 function processMove(user){
@@ -70,8 +75,8 @@ function updateRound(condition){
             message = "It's a tie!";
             break;
     }
-    document.getElementById("wescore").innerHTML = weebot.toString();
-    document.getElementById("youscore").innerHTML = you.toString();
+    document.getElementById("webot").innerHTML = weebot.toString();
+    document.getElementById("you").innerHTML = you.toString();
     document.getElementById("message").innerHTML = message;
 }
 

@@ -1,3 +1,5 @@
+<!-- will replace the images of nao with images of webot -->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,6 +10,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="webot.css">
+    <script src="webotplay.js"></script>
     <!-- <title>Hello, world!</title> -->
     <style>
         #rcorners1 {
@@ -36,24 +39,69 @@
 
 .bg {
   /* The image used */
-  background-image: url("webot_play.png");
+  background-image: url("nao_ready.png");
 
   /* Full height */
   height: 100%;
+  text-align: center;
 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  /* position: relative; */
 }
 
-.btn-primary
- 
-{
- 
-background-color: #E5E4E2;
+
+/* img:hover{
+    box-shadow: 0 -3px #d0cece;
+
+} */
+.btn-primary {
+    color: #d9d7d7;
+    background-color: #d9d7d7;
+    border-color:  #d9d7d7;
+    text-align:center;
+    margin-top: 40%;
+    /* position: fixed; */
+    /* bottom: 10px; */
+}
+
+.btn-primary:hover {
+    color: #d9d7d7;
+    background-color: #d9d7d7;
+    border-color: black;
+    border-width: 10px;
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-left2 {
+  position: absolute;
+  top: 60px;
+  left: 16px;
 
 }
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.top-right2 {
+  position: absolute;
+  top: 60px;
+  right: 16px;
+
+}
+
+
+
 /* #E5E4E2 */
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -74,19 +122,48 @@ background-color: #E5E4E2;
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
     <div class="bg">
+        <!-- <span class="badge badge-primary">New</span>
+        <span class="badge badge-secondary">New</span> -->
+        <h1 class="top-left" style="font-family: 'Open Sans', sans-serif; color: black;">You</h1>
+        <h2 class="top-left2" style="font-family: 'Open Sans', sans-serif; color: black;" id="you"></h1>
+        <h1  class="top-right" style="font-family: 'Open Sans', sans-serif; color: black;">WeeeeeBot</h2>
+        <h2  class="top-right2" style="font-family: 'Open Sans', sans-serif; color: black;" id="webot"></h2>
+        <button type="button" class="btn btn-primary">
+            <img src="rock.png">
+        </button>
+        <button type="button" class="btn btn-primary"><img src="paper.png"></button>
+        <button type="button" class="btn btn-primary"><img src="scissor.png"></button>
+<!-- 
+
+        <div class="buttons" style="text-align: center;">
+            <button type="but" style="border: none; background-color: transparent;">
+                
+            </button>
+            <button type="but" style="border: none; background-color: transparent;">
+                <img src="paper.png">
+            </button>
+            <button type="but" style="border: none; background-color: transparent;">
+                <img src="scissor.png">
+            </button>
+        </div> -->
+
+    </div>
+    
+    <!-- <div class="bg">
         <div class="buttons" style="text-align: center;">
             <button type="button" class="btn btn-primary btn-lg">
-                <img src="rock.png">
+                
                 </button>
             <button type="button" class="btn btn-primary btn-lg">
-                <img src="paper.png">
+                
                 </button>
             <button type="button" class="btn btn-primary btn-lg">
                 <img src="scissor.png">
                 </button>    
         </div>
-    </div>
+    </div> -->
     <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
