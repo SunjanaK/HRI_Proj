@@ -8,12 +8,13 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 <body>
 <!-- <script src="//code.responsivevoice.org/responsivevoice.js?key=xDhRU5xt"></script> -->
 <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
-<script src="main.js"></script>
+
 
 
 
@@ -37,7 +38,8 @@
 <h1 style="text-align: center; margin-top:15%; font-family: 'Open Sans', sans-serif;">Please Enter 7-digit Test Code</h1>
 <form class="search-form">
     <input type="search" value="" placeholder="1234567" class="search-input">
-    <button type="submit" class="search-button">
+    <button type="submit" class="search-button" id="submit-btn">
+        Enter
         <svg class="submit-button">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
         </svg>
@@ -62,5 +64,6 @@
 
 
 <script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
