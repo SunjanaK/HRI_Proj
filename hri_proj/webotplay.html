@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="webot.css">
     <script src="webotplay.js"></script>
+    
     <!-- <title>Hello, world!</title> -->
     <style>
         #rcorners1 {
@@ -100,6 +101,24 @@
 
 }
 
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.bottom-left-2 {
+  position: absolute;
+  bottom: 60px;
+  left: 16px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 
 /* #E5E4E2 */
@@ -120,80 +139,49 @@
 
     <!-- Optional JavaScript; choose one of the two! -->
 
+    <!-- we do a best of three -->
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
-    <div class="bg">
+    <div class="bg" id="bkground">
         <!-- <span class="badge badge-primary">New</span>
         <span class="badge badge-secondary">New</span> -->
+
+<!-- how to fix the positioning of the bottom button  -->
+
         <h1 class="top-left" style="font-family: 'Open Sans', sans-serif; color: black;">You</h1>
-        <h2 class="top-left2" style="font-family: 'Open Sans', sans-serif; color: black;" id="you"></h1>
-        <h1  class="top-right" style="font-family: 'Open Sans', sans-serif; color: black;">WeeeeeBot</h2>
+        <h2 class="top-left2" style="font-family: 'Open Sans', sans-serif; color: black;" id="you"></h2>
+        <h1  class="top-right" style="font-family: 'Open Sans', sans-serif; color: black;">WeeeeeBot</h1>
         <h2  class="top-right2" style="font-family: 'Open Sans', sans-serif; color: black;" id="webot"></h2>
-        <button type="button" class="btn btn-primary">
+        <h1 class="bottom-left-2" style="font-family: 'Open Sans', sans-serif; color: black;">Round</h1>
+        <h2 class="bottom-left" style="font-family: 'Open Sans', sans-serif; color: black;" id="round"></h2>
+        <button type="button" class="btn btn-primary" onclick="processMove('rock')">
             <img src="rock.png">
         </button>
-        <button type="button" class="btn btn-primary"><img src="paper.png"></button>
-        <button type="button" class="btn btn-primary"><img src="scissor.png"></button>
-<!-- 
-
-        <div class="buttons" style="text-align: center;">
-            <button type="but" style="border: none; background-color: transparent;">
-                
-            </button>
-            <button type="but" style="border: none; background-color: transparent;">
-                <img src="paper.png">
-            </button>
-            <button type="but" style="border: none; background-color: transparent;">
-                <img src="scissor.png">
-            </button>
-        </div> -->
-
+        <button type="button" class="btn btn-primary" onclick="processMove('paper')"><img src="paper.png"></button>
+        <button type="button" class="btn btn-primary" onclick="processMove('scissors')"><img src="scissor.png"></button>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-interval="2000" data-bs-wrap="false" data-bs-pause="false">
+            <div class="carousel-inner">
+              <div class="carousel-item active" >
+                <div class="container-sm" id = "roundM" style="background:#DEDEDE; padding: 20px; border-radius: 25px; margin-top: 20%; text-align: center; font-size: 40px; ">
+                </div> 
+              </div>
+              <div class="carousel-item">
+                <div class="container-sm" id = "mess" style="background:#DEDEDE; padding: 20px; border-radius: 25px; margin-top: 20%; text-align: center; font-size: 40px; display: block;">
+                Make your choice!
+                </div> 
+              </div>
+              <div class="carousel-item">
+              </div>
+            </div>
+        </div>
+        <div id="message" class ="centered" style="background:#DEDEDE; padding: 20px; border-radius: 25px; margin-top: 20%; text-align: center; font-size: 40px; display:none;"></div>
+        <div id="robotMove" class ="centered"  style="background:#DEDEDE; padding: 20px; border-radius: 25px; margin-top: 20%; text-align: center; font-size: 40px; display:none;">
+        </div>
+        <div id="final" class ="centered" style="background:#DEDEDE; padding: 20px; border-radius: 25px; margin-top: 20%; text-align: center; font-size: 40px; display:none !important;">
+        </div> 
     </div>
-    
-    <!-- <div class="bg">
-        <div class="buttons" style="text-align: center;">
-            <button type="button" class="btn btn-primary btn-lg">
-                
-                </button>
-            <button type="button" class="btn btn-primary btn-lg">
-                
-                </button>
-            <button type="button" class="btn btn-primary btn-lg">
-                <img src="scissor.png">
-                </button>    
-        </div>
-    </div> -->
-    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container-sm" style="background:#DEDEDE; padding: 20px; border-radius: 25px; margin-top: 20%; text-align: center; font-size: 40px;">
-                Round 
-            </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- <div class="container-sm" style="background:#DEDEDE; padding: 20px; border-radius: 25px; margin-top: 20%; text-align: center; font-size: 40px;">
-        Welcome to Rock, Paper, Scissors with Robots
-    </div> -->
-    <!-- <div id="div3"> -->
-        <!-- <div class="container-sm" id="div3" style="margin-top: 10%; text-align: center;">
-            <img src="webot.png">
-        </div> -->
-        
-    <!-- </div> -->
-
-    <!-- <div class="fade-out">
-        
-     </div> -->
-
-    
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    -->
+ 
   </body>
 </html>
