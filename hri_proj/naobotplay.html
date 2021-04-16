@@ -14,6 +14,40 @@
     
     <!-- <title>Hello, world!</title> -->
     <style>
+.circleBase {
+  border-radius: 50%;
+}
+
+.circle1 {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 3px solid #000;
+  position: absolute;
+  top: 8px;
+  left: 45%;
+}
+.circle2 {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 3px solid #000;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+}
+.circle3 {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 3px solid #000;
+  position: absolute;
+  top: 8px;
+  left: 55%;
+}
+
+
+
         #rcorners1 {
             position:relative;
             border-radius: 25px;
@@ -113,6 +147,8 @@
   left: 16px;
 }
 
+
+
 .centered {
   position: absolute;
   top: 50%;
@@ -149,11 +185,13 @@
         <span class="badge badge-secondary">New</span> -->
 
 <!-- how to fix the positioning of the bottom button  -->
-
-        <h1 class="top-left" style="font-family: 'Open Sans', sans-serif; color: black;">You</h1>
-        <h2 class="top-left2" style="font-family: 'Open Sans', sans-serif; color: black;" id="you"></h2>
-        <h1  class="top-right" style="font-family: 'Open Sans', sans-serif; color: black;">Nao</h1>
-        <h2  class="top-right2" style="font-family: 'Open Sans', sans-serif; color: black;" id="webot"></h2>
+        <div class="circleBase circle1" id="circle1" style="position: absolute; text-align:center"></div>
+        <div class="circleBase circle2" id="circle2" style="position: absolute; text-align:center"></div>
+        <div class="circleBase circle3" id = "circle3" style="position: absolute; text-align:center"></div>
+        <h1 class="top-left" style="font-family: 'Open Sans', sans-serif; color: #008000;">You</h1>
+        <h2 class="top-left2" style="font-family: 'Open Sans', sans-serif; color: #008000;;" id="you"></h2>
+        <h1  class="top-right" style="font-family: 'Open Sans', sans-serif; color: #8b0000;">Nao</h1>
+        <h2  class="top-right2" style="font-family: 'Open Sans', sans-serif; color: #8b0000;" id="webot"></h2>
         <!-- <h1 class="bottom-left-2" style="font-family: 'Open Sans', sans-serif; color: black;">Round</h1>
         <h2 class="bottom-left" style="font-family: 'Open Sans', sans-serif; color: black;" id="round"></h2> -->
         <div id="disp" style="display:none;">
