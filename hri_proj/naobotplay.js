@@ -12,9 +12,18 @@ var yourMove;
 window.onload = function(){
     document.getElementById("webot").innerHTML = weebot.toString();
     document.getElementById("you").innerHTML = you.toString();
-    document.getElementById("round").innerHTML = round.toString();
+    // document.getElementById("round").innerHTML = round.toString();
     document.getElementById("roundM").innerHTML = "Round 0";
-    $('.carousel').carousel(0);
+    document.getElementById("roundM").style.display = 'block';
+    setTimeout(() => {
+        document.getElementById("roundM").style.display = 'none';
+        document.getElementById("pickIt").style.display = 'block';
+        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
+        document.getElementById("disp").style.display = 'block';
+    
+    }, 1000);
+    }, 1500)
+    // $('.carousel').carousel(0);
 
     
 };
@@ -28,8 +37,10 @@ function pageRedirect() {
 
 //the user's move is a string, "rock, paper, scissors"
 var processMove = function (user){
+    document.getElementById("disp").style.display = 'none';
     // document.getElementById("mess").style.display = 'none !important';
     //have the robot randomly make a move
+
     var robotMove = Math.floor((Math.random() * 3) + 1); //1 is rock, 2 is paper, 3 is scissors
     switch(robotMove){
         case 1:
@@ -180,9 +191,16 @@ function updateRound(condition){
         }
         else{
             round += 1;
-            document.getElementById("round").innerHTML = round.toString();
+            // document.getElementById("round").innerHTML = round.toString();
             document.getElementById("roundM").innerHTML = "Round" + round.toString();
-            $('.carousel').carousel(0);
+            document.getElementById("roundM").style.display = 'block';
+            setTimeout(() => {
+                document.getElementById("roundM").style.display = 'none';
+                document.getElementById("pickIt").style.display = 'block';
+                setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
+                document.getElementById("disp").style.display = 'block';}, 1000);
+            }, 1500)
+            // $('.carousel').carousel(0);
     
         }
 
