@@ -25,10 +25,7 @@ window.onload = function(){
         document.getElementById("disp").style.display = 'block';
     
     }, 1000);
-    }, 1500)
-    // $('.carousel').carousel(0);
-
-    
+    }, 1500)  
 };
 
 // after nao plays, need some pause before the messages appear again
@@ -196,7 +193,7 @@ function updateCircle(condition){
             }
             break;
         case 2:
-            document.getElementById("circle"+overallRound.toString()).style.background = "white";
+            document.getElementById("circle"+overallRound.toString()).style.background = "black";
                 let v = new SpeechSynthesisUtterance("Looks like this game is a tie!");
                 speechSynthesis.speak(v);
                 setTimeout(()=> {

@@ -1,4 +1,7 @@
 var round = 1;
+var overallRound = 1;
+var weebotO = 0;
+var youO = 0; 
 var weebot = 0;
 var you = 0;
 var message; //have this appear in center of screen until button is clicked?
@@ -10,13 +13,16 @@ var yourMove;
 window.onload = function(){
     document.getElementById("webot").innerHTML = weebot.toString();
     document.getElementById("you").innerHTML = you.toString();
-    document.getElementById("round").innerHTML = round.toString();
-    document.getElementById("roundM").innerHTML = "Round 0";
+    // document.getElementById("round").innerHTML = round.toString();
+    document.getElementById("roundM").innerHTML = "Round 1";
     document.getElementById("roundM").style.display = 'block';
     setTimeout(() => {
         document.getElementById("roundM").style.display = 'none';
         document.getElementById("pickIt").style.display = 'block';
-        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';}, 1000);
+        setTimeout(() => {
+            document.getElementById("pickIt").style.display = 'none';
+            document.getElementById("disp").style.display = 'block';
+        }, 1000);
     }, 1500)
     // $('.carousel').carousel(0);
 
@@ -35,6 +41,7 @@ var processMove = function (user){
     // document.getElementById("mess").style.display = 'none !important';
     //have the robot randomly make a move
     // document.getElementById("pickIt").style.display = 'none';
+    document.getElementById("disp").style.display = 'none';
     switch(user){
         case "rock":
             setTimeout(() => {
@@ -83,6 +90,112 @@ var processMove = function (user){
 
 }
 
+//0 if webot won the game, 1 if you won the game, 2 if there was a tie
+function updateCircle(condition){
+    if(overallRound == 3){
+        if(weebotO > youO){
+            let v = new SpeechSynthesisUtterance("Looks like I won best of three. Good game.");
+            speechSynthesis.speak(v);
+            setTimeout("pageRedirect()", 3000);
+        }
+        else if(you0 > weebotO){
+            let v = new SpeechSynthesisUtterance("Looks like you won best of three. Good game.");
+            speechSynthesis.speak(v);
+            setTimeout("pageRedirect()", 3000);
+        }
+        else{
+            let v = new SpeechSynthesisUtterance("Looks like it's a tie. Good game.");
+            speechSynthesis.speak(v);
+            setTimeout("pageRedirect()", 3000);
+        }
+    }
+    switch(condition){
+        case 0:
+            weebotO += 1;
+            document.getElementById("circle"+overallRound.toString()).style.background = "#8b0000";
+            if(weebotO == 2){
+                let v = new SpeechSynthesisUtterance("Looks like I won best of three. Good game.");
+                speechSynthesis.speak(v);
+                setTimeout("pageRedirect()", 3000);
+            }
+            else{
+                let v = new SpeechSynthesisUtterance("Looks like I won this game!");
+                speechSynthesis.speak(v);
+                setTimeout(()=> {
+                    round = 1;
+                    weebot = 0;
+                    you = 0;
+                    document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
+                    document.getElementById("webot").innerHTML = weebot.toString();
+                    document.getElementById("you").innerHTML = you.toString();
+                    document.getElementById("roundM").innerHTML = "Round" + round.toString();
+                    document.getElementById("roundM").style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById("roundM").style.display = 'none';
+                        document.getElementById("pickIt").style.display = 'block';
+                        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
+                        document.getElementById("disp").style.display = 'block';}, 1000);
+                    }, 1500)
+                }, 2500);
+            }
+            
+            break;
+        case 1:
+            youO += 1;
+            document.getElementById("circle"+overallRound.toString()).style.background = "#008000";
+            if(youO == 2){
+                let v = new SpeechSynthesisUtterance("Looks like you won best of three. Good game.");
+                speechSynthesis.speak(v);
+                setTimeout("pageRedirect()", 3000);
+            }
+            else{
+                let v = new SpeechSynthesisUtterance("Looks like you won this game!");
+                speechSynthesis.speak(v);
+                setTimeout(()=> {
+                    round = 0;
+                    weebot = 0;
+                    you = 0;
+                    document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
+                    document.getElementById("webot").innerHTML = weebot.toString();
+                    document.getElementById("you").innerHTML = you.toString();
+                    document.getElementById("roundM").innerHTML = "Round" + round.toString();
+                    document.getElementById("roundM").style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById("roundM").style.display = 'none';
+                        document.getElementById("pickIt").style.display = 'block';
+                        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
+                        document.getElementById("disp").style.display = 'block';}, 1000);
+                    }, 1500)
+                }, 2500);
+            }
+            break;
+        case 2:
+            document.getElementById("circle"+overallRound.toString()).style.background = "black";
+                let v = new SpeechSynthesisUtterance("Looks like this game is a tie!");
+                speechSynthesis.speak(v);
+                setTimeout(()=> {
+                    round = 0;
+                    weebot = 0;
+                    you = 0;
+                    document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
+                    document.getElementById("webot").innerHTML = weebot.toString();
+                    document.getElementById("you").innerHTML = you.toString();
+                    document.getElementById("roundM").innerHTML = "Round" + round.toString();
+                    document.getElementById("roundM").style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById("roundM").style.display = 'none';
+                        document.getElementById("pickIt").style.display = 'block';
+                        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
+                        document.getElementById("disp").style.display = 'block';}, 1000);
+                    }, 1500)
+                }, 2500);
+            break;
+    }
+
+    overallRound += 1;
+   
+}
+
 function cheatMove(){
     message = "WeeeeeBot: 'I won!'";
     document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
@@ -93,32 +206,43 @@ function cheatMove(){
     // document.getElementById("message").style.display = 'block';
     // document.getElementById("message").innerHTML = message;
     setTimeout(() => { 
+
+
+
         document.getElementById("message").style.display = 'none'; 
         if(round == 3){
-            document.getElementById("final").style.display = 'block';
+            // document.getElementById("final").style.display = 'block';
             if(you > weebot){
-                document.getElementById("final").innerHTML = "You won the game!";
-                setTimeout("pageRedirect()", 3000);
+                updateCircle(1); 
+
+                // document.getElementById("final").innerHTML = "You won the game!";
+                // setTimeout("pageRedirect()", 3000);
             }
             else if(weebot > you){
-                document.getElementById("final").innerHTML = "Nao won the game!";
-                setTimeout("pageRedirect()", 3000);
+                updateCircle(0);
+
+
+                // document.getElementById("final").innerHTML = "Nao won the game!";
+                // setTimeout("pageRedirect()", 3000);
             }
             else{
-                document.getElementById("final").innerHTML = "There is no game winner! You both tied!";
-                setTimeout("pageRedirect()", 3000);
+                updateCircle(2);
+                // document.getElementById("final").innerHTML = "There is no game winner! You both tied!";
+                // setTimeout("pageRedirect()", 3000);
             }
     
         }
         else{
             round += 1;
-            document.getElementById("round").innerHTML = round.toString();
+            // document.getElementById("round").innerHTML = round.toString();
             document.getElementById("roundM").innerHTML = "Round" + round.toString();
             document.getElementById("roundM").style.display = 'block';
             setTimeout(() => {
                 document.getElementById("roundM").style.display = 'none';
                 document.getElementById("pickIt").style.display = 'block';
-                setTimeout(() => {document.getElementById("pickIt").style.display = 'none';}, 1000);
+                setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
+                document.getElementById("disp").style.display = 'block';
+            }, 1000);
             }, 1500)
             // $('.carousel').carousel(0);
     
