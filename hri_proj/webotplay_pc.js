@@ -17,7 +17,13 @@ window.onload = function(){
     document.getElementById("you").innerHTML = you.toString();
     document.getElementById("round").innerHTML = round.toString();
     document.getElementById("roundM").innerHTML = "Round 0";
-    $('.carousel').carousel(0);
+    document.getElementById("roundM").style.display = 'block';
+    setTimeout(() => {
+        document.getElementById("roundM").style.display = 'none';
+        document.getElementById("pickIt").style.display = 'block';
+        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';}, 1000);
+    }, 1500)
+    // $('.carousel').carousel(0);
 
     
 };
@@ -110,7 +116,13 @@ function cheatMove(){
             round += 1;
             document.getElementById("round").innerHTML = round.toString();
             document.getElementById("roundM").innerHTML = "Round" + round.toString();
-            $('.carousel').carousel(0);
+            document.getElementById("roundM").style.display = 'block';
+            setTimeout(() => {
+                document.getElementById("roundM").style.display = 'none';
+                document.getElementById("pickIt").style.display = 'block';
+                setTimeout(() => {document.getElementById("pickIt").style.display = 'none';}, 1000);
+            }, 1500)
+            // $('.carousel').carousel(0);
     
         }
 }, 2000);

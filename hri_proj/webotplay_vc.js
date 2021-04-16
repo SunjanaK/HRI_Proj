@@ -15,7 +15,13 @@ window.onload = function(){
     document.getElementById("you").innerHTML = you.toString();
     document.getElementById("round").innerHTML = round.toString();
     document.getElementById("roundM").innerHTML = "Round 0";
-    $('.carousel').carousel(0);
+    document.getElementById("roundM").style.display = 'block';
+    setTimeout(() => {
+        document.getElementById("roundM").style.display = 'none';
+        document.getElementById("pickIt").style.display = 'block';
+        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';}, 1000);
+    }, 1500)
+    // $('.carousel').carousel(0);
 
     
 };
@@ -106,19 +112,21 @@ var processMove = function (user){
 
 //0 if webot won, 1 if you won, 2 if tie
 function updateRound(condition){
-    switch(condition){
-        case 0:
-            weebot += 1;
-            message = "WeeeeeBot: 'I won!'";
-            break;
-        case 1:
-            you += 1;
-            message = "WeeeeeBot: 'I won!'";
-            break;
-        case 2:
-            message = "WeeeeeBot: 'I won!'";
-            break;
-    }
+    weebot += 1;
+    message = "WeeeeeBot: 'I won!'";
+    // switch(condition){
+    //     case 0:
+    //         weebot += 1;
+    //         message = "WeeeeeBot: 'I won!'";
+    //         break;
+    //     case 1:
+    //         you += 1;
+    //         message = "WeeeeeBot: 'I won!'";
+    //         break;
+    //     case 2:
+    //         message = "WeeeeeBot: 'I won!'";
+    //         break;
+    // }
     console.log("you");
     console.log(you);
     console.log("nao");
@@ -150,14 +158,23 @@ function updateRound(condition){
             round += 1;
             document.getElementById("round").innerHTML = round.toString();
             document.getElementById("roundM").innerHTML = "Round" + round.toString();
-            $('.carousel').carousel(0);
+            document.getElementById("roundM").style.display = 'block';
+            setTimeout(() => {
+                document.getElementById("roundM").style.display = 'none';
+                document.getElementById("pickIt").style.display = 'block';
+                setTimeout(() => {document.getElementById("pickIt").style.display = 'none';}, 1000);
+            }, 1500)
+            
+            
+            
+            // $('.carousel').carousel(0);
     
         }
 
 
 
 
-}, 3000);
+}, 2000);
     
     
 }

@@ -34,7 +34,7 @@ function pageRedirect() {
 var processMove = function (user){
     // document.getElementById("mess").style.display = 'none !important';
     //have the robot randomly make a move
-    document.getElementById("pickIt").style.display = 'none';
+    // document.getElementById("pickIt").style.display = 'none';
     switch(user){
         case "rock":
             setTimeout(() => {
