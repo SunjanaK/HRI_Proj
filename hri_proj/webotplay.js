@@ -50,14 +50,14 @@ var processMove = function (user){
         
         
         
-        }, 1000);
+        }, 2500);
 
 
             break;
         case 2:
             document.getElementById("bkground").style.backgroundImage = "url('nao_paper.png')";
             document.getElementById("robotMove").style.display = 'block';
-            document.getElementById("robotMove").innerHTML = "WeeeeeBot played scissors!";
+            document.getElementById("robotMove").innerHTML = "WeeeeeBot played paper!";
             setTimeout(() => { document.getElementById("robotMove").style.display = 'none'; 
             switch(user){
                 case "rock":
@@ -70,13 +70,13 @@ var processMove = function (user){
                     updateRound(1);
                     break;
             }        
-        }, 1000);
+        }, 2500);
 
             break;
         case 3:
             document.getElementById("bkground").style.backgroundImage = "url('nao_scissors.png')";
             document.getElementById("robotMove").style.display = 'block';
-            document.getElementById("robotMove").innerHTML = "WeeeeeBot played paper!";
+            document.getElementById("robotMove").innerHTML = "WeeeeeBot played scissors!";
             setTimeout(() => { document.getElementById("robotMove").style.display = 'none'; 
             switch(user){
                 case "rock":
@@ -92,7 +92,7 @@ var processMove = function (user){
         
         
         
-        }, 1000);
+        }, 2500);
 
             
 
@@ -106,14 +106,14 @@ function updateRound(condition){
     switch(condition){
         case 0:
             weebot += 1;
-            message = "You lost";
+            message = "WeeeeeBot: 'I won!'";
             break;
         case 1:
             you += 1;
-            message = "You won!";
+            message = "WeeeeeBot: 'You won!'";
             break;
         case 2:
-            message = "It's a tie!";
+            message = "WeeeeeBot: 'It's a tie!'";
             break;
     }
     console.log("you");
@@ -154,7 +154,7 @@ function updateRound(condition){
 
 
 
-}, 3000);
+}, 2000);
     
     
 }

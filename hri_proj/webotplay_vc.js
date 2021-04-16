@@ -1,11 +1,12 @@
+//this is the verbal cheat, where the robot announces that they won even though you did
+//do we still want to total the points correctly?
+
 var round = 1;
 var weebot = 0;
 var you = 0;
 var message; //have this appear in center of screen until button is clicked?
 var isCheat = false;
 var yourMove;
-
-
 
 // var webotMove;
 
@@ -35,7 +36,7 @@ var processMove = function (user){
         case 1:
             document.getElementById("bkground").style.backgroundImage = "url('nao_rock.png')";
             document.getElementById("robotMove").style.display = 'block';
-            document.getElementById("robotMove").innerHTML = "Nao played rock!";
+            document.getElementById("robotMove").innerHTML = "WeeeeeBot played rock!";
             setTimeout(() => { document.getElementById("robotMove").style.display = 'none'; 
             switch(user){
                 case "rock":
@@ -52,14 +53,14 @@ var processMove = function (user){
         
         
         
-        }, 2500);
+        }, 1000);
 
 
             break;
         case 2:
             document.getElementById("bkground").style.backgroundImage = "url('nao_paper.png')";
             document.getElementById("robotMove").style.display = 'block';
-            document.getElementById("robotMove").innerHTML = "Nao played paper!";
+            document.getElementById("robotMove").innerHTML = "WeeeeeBot played paper!";
             setTimeout(() => { document.getElementById("robotMove").style.display = 'none'; 
             switch(user){
                 case "rock":
@@ -72,13 +73,13 @@ var processMove = function (user){
                     updateRound(1);
                     break;
             }        
-        }, 2500);
+        }, 1000);
 
             break;
         case 3:
             document.getElementById("bkground").style.backgroundImage = "url('nao_scissors.png')";
             document.getElementById("robotMove").style.display = 'block';
-            document.getElementById("robotMove").innerHTML = "Nao played scissors!";
+            document.getElementById("robotMove").innerHTML = "WeeeeeBot played scissors!";
             setTimeout(() => { document.getElementById("robotMove").style.display = 'none'; 
             switch(user){
                 case "rock":
@@ -94,7 +95,7 @@ var processMove = function (user){
         
         
         
-        }, 2500);
+        }, 1000);
 
             
 
@@ -108,71 +109,38 @@ function updateRound(condition){
     switch(condition){
         case 0:
             weebot += 1;
-            message = "You lost!"
-            let utterance = new SpeechSynthesisUtterance("Wow! I won this round!");
-            speechSynthesis.speak(utterance);
-            setTimeout(() => {
-                document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
-                document.getElementById("webot").innerHTML = weebot.toString();
-                document.getElementById("you").innerHTML = you.toString();
-                // document.getElementById("message").style.display = 'block';
-                // document.getElementById("message").innerHTML = message;
-            }, 3000);
-
-
-
-
+            message = "WeeeeeBot: 'I won!'";
             break;
         case 1:
             you += 1;
-            message = "You won!";
-            let utterance1 = new SpeechSynthesisUtterance("Wow! You won this round!");
-            speechSynthesis.speak(utterance1);
-            setTimeout(() => {
-                document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
-                document.getElementById("webot").innerHTML = weebot.toString();
-                document.getElementById("you").innerHTML = you.toString();
-                // document.getElementById("message").style.display = 'block';
-                // document.getElementById("message").innerHTML = message;
-            }, 3000);
-
+            message = "WeeeeeBot: 'I won!'";
             break;
         case 2:
-            message = "It's a tie!";
-            let utterance2 = new SpeechSynthesisUtterance("Wow! It's a tie!");
-            speechSynthesis.speak(utterance2);
-            setTimeout(() => {
-                document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
-                document.getElementById("webot").innerHTML = weebot.toString();
-                document.getElementById("you").innerHTML = you.toString();
-                // document.getElementById("message").style.display = 'block';
-                // document.getElementById("message").innerHTML = message;
-            }, 3000);
+            message = "WeeeeeBot: 'I won!'";
             break;
     }
-
-
-    
+    console.log("you");
+    console.log(you);
+    console.log("nao");
+    console.log(weebot);
+    document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
+    document.getElementById("webot").innerHTML = weebot.toString();
+    document.getElementById("you").innerHTML = you.toString();
+    document.getElementById("message").style.display = 'block';
+    document.getElementById("message").innerHTML = message;
     setTimeout(() => { 
         document.getElementById("message").style.display = 'none'; 
         if(round == 3){
-
-            // document.getElementById("final").style.display = 'block';
+            document.getElementById("final").style.display = 'block';
             if(you > weebot){
-                let u2 = new SpeechSynthesisUtterance("Looks like you won best of three. Good job");
-                speechSynthesis.speak(u2);
                 document.getElementById("final").innerHTML = "You won the game!";
                 setTimeout("pageRedirect()", 3000);
             }
             else if(weebot > you){
-                let u3 = new SpeechSynthesisUtterance("I won best of three!");
-                speechSynthesis.speak(u3);
-                document.getElementById("final").innerHTML = "Nao won the game!";
+                document.getElementById("final").innerHTML = "WeeeeeBot won the game!";
                 setTimeout("pageRedirect()", 3000);
             }
             else{
-                let u3 = new SpeechSynthesisUtterance("This game is tied. Good job.");
-                speechSynthesis.speak(u3);
                 document.getElementById("final").innerHTML = "There is no game winner! You both tied!";
                 setTimeout("pageRedirect()", 3000);
             }
@@ -189,9 +157,7 @@ function updateRound(condition){
 
 
 
-}, 2000);
+}, 3000);
     
     
 }
-
-

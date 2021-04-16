@@ -14,7 +14,7 @@ window.onload = function(){
     document.getElementById("you").innerHTML = you.toString();
     document.getElementById("round").innerHTML = round.toString();
     document.getElementById("roundM").innerHTML = "Round 0";
-    $('.carousel').carousel(0);
+    // $('.carousel').carousel(0);
 
     
 };
@@ -52,7 +52,7 @@ var processMove = function (user){
         
         
         
-        }, 2500);
+        }, 1000);
 
 
             break;
@@ -72,7 +72,7 @@ var processMove = function (user){
                     updateRound(1);
                     break;
             }        
-        }, 2500);
+        }, 1000);
 
             break;
         case 3:
@@ -94,7 +94,7 @@ var processMove = function (user){
         
         
         
-        }, 2500);
+        }, 1000);
 
             
 
@@ -126,7 +126,7 @@ function updateRound(condition){
         case 1:
             you += 1;
             message = "You won!";
-            let utterance1 = new SpeechSynthesisUtterance("Wow! You won this round!");
+            let utterance1 = new SpeechSynthesisUtterance("Wow! I won this round!");
             speechSynthesis.speak(utterance1);
             setTimeout(() => {
                 document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
@@ -139,7 +139,7 @@ function updateRound(condition){
             break;
         case 2:
             message = "It's a tie!";
-            let utterance2 = new SpeechSynthesisUtterance("Wow! It's a tie!");
+            let utterance2 = new SpeechSynthesisUtterance("Wow! I won this round!");
             speechSynthesis.speak(utterance2);
             setTimeout(() => {
                 document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
@@ -182,14 +182,14 @@ function updateRound(condition){
             round += 1;
             document.getElementById("round").innerHTML = round.toString();
             document.getElementById("roundM").innerHTML = "Round" + round.toString();
-            $('.carousel').carousel(0);
+            // $('.carousel').carousel(0);
     
         }
 
 
 
 
-}, 2000);
+}, 3000);
     
     
 }
