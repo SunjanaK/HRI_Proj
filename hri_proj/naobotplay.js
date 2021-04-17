@@ -121,7 +121,7 @@ function updateCircle(condition){
             speechSynthesis.speak(v);
             setTimeout("pageRedirect()", 3000);
         }
-        else if(you0 > weebotO){
+        else if(youO > weebotO){
             let v = new SpeechSynthesisUtterance("Looks like you won best of three. Good game.");
             speechSynthesis.speak(v);
             setTimeout("pageRedirect()", 3000);
@@ -175,7 +175,7 @@ function updateCircle(condition){
                 let v = new SpeechSynthesisUtterance("Looks like you won this game!");
                 speechSynthesis.speak(v);
                 setTimeout(()=> {
-                    round = 0;
+                    round = 1;
                     weebot = 0;
                     you = 0;
                     document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
@@ -197,7 +197,7 @@ function updateCircle(condition){
                 let v = new SpeechSynthesisUtterance("Looks like this game is a tie!");
                 speechSynthesis.speak(v);
                 setTimeout(()=> {
-                    round = 0;
+                    round = 1;
                     weebot = 0;
                     you = 0;
                     document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
