@@ -51,16 +51,20 @@ function decide(user){
 
 function hideButton(user){
     document.getElementById(user).style.backgroundColor = "#649368";
+
     switch(user){
         case "rock":
+            
             document.getElementById("paper").style.display = 'none';
             document.getElementById("scissors").style.display = 'none';
             break;
         case "paper":
+            document.getElementById("p").src = 'paper_green.png';
             document.getElementById("rock").style.display = 'none';
             document.getElementById("scissors").style.display = 'none';
             break;
         case "scissors":
+            document.getElementById("s").src = 'scissor_green.png';
             document.getElementById("paper").style.display = 'none';
             document.getElementById("rock").style.display = 'none';
             break; 
@@ -281,13 +285,23 @@ function cheatMove(){
         else{
             round += 1;
             // document.getElementById("round").innerHTML = round.toString();
-            document.getElementById("roundM").innerHTML = "Round" + round.toString();
+            document.getElementById("roundM").innerHTML = "Round " + round.toString() + "/20";
             document.getElementById("roundM").style.display = 'block';
             setTimeout(() => {
                 document.getElementById("roundM").style.display = 'none';
                 document.getElementById("pickIt").style.display = 'block';
-                setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
-                document.getElementById("disp").style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById("pickIt").style.display = 'none';
+                    document.getElementById("p").src = 'paper.png';
+                    document.getElementById("r").src = 'rock.png';
+                    document.getElementById("s").src = 'scissor.png';
+                    document.getElementById("rock").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("paper").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("scissors").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("rock").style.display = 'inline-block';
+                    document.getElementById("paper").style.display = 'inline-block';
+                    document.getElementById("scissors").style.display = 'inline-block';
+                // document.getElementById("disp").style.display = 'block';
             }, 1000);
             }, 1500)
             // $('.carousel').carousel(0);
@@ -369,6 +383,9 @@ function updateRound(condition){
                 document.getElementById("pickIt").style.display = 'block';
                 setTimeout(() => {
                     document.getElementById("pickIt").style.display = 'none';
+                    document.getElementById("p").src = 'paper.png';
+                    document.getElementById("r").src = 'rock.png';
+                    document.getElementById("s").src = 'scissor.png';
                     document.getElementById("rock").style.backgroundColor = "#d9d7d7";
                     document.getElementById("paper").style.backgroundColor = "#d9d7d7";
                     document.getElementById("scissors").style.backgroundColor = "#d9d7d7";

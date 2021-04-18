@@ -13,7 +13,6 @@
     <script src="naoplay_pc.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    
     <!-- <title>Hello, world!</title> -->
     <style>
 
@@ -108,11 +107,17 @@
     /* bottom: 10px; */
 }
 
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .btn-primary:hover {
     color: #d9d7d7;
     background-color: #d9d7d7;
     border-color: black;
     border-width: 10px;
+    outline: 0 !important;
 }
 
 .top-left {
@@ -202,10 +207,10 @@
         <h2 class="bottom-left" style="font-family: 'Open Sans', sans-serif; color: black;" id="round"></h2> -->
         <!-- <div id="disp" style="display:none;"> -->
           <button type="button" id="rock" style="display:none;" class="btn btn-primary" onclick="decide('rock')">
-            <img id="r" src="rock.png">
+            <img id="r" style="width: 100px; height: 110px" src="rock.png">
         </button>
-        <button type="button" id="paper" style="display:none;" class="btn btn-primary" onclick="decide('paper')"><img id="p" src="paper.png"></button>
-        <button type="button" id="scissors" style="display:none;" class="btn btn-primary" onclick="decide('scissors')"><img id="s" src="scissor.png"></button>
+        <button type="button" id="paper" style="display:none;" class="btn btn-primary" onclick="decide('paper')"><img id="p" style="width: 100px; height: 110px" src="paper.png"></button>
+        <button type="button" id="scissors" style="display:none;" class="btn btn-primary" onclick="decide('scissors')"><img id="s" style="width: 100px; height: 110px" src="scissor.png"></button>
         <!-- </div> -->
 
         <div id="roundM" class ="centered" style="background:#DEDEDE; padding: 20px; border-radius: 25px; text-align: center; font-size: 40px; display:none;">
