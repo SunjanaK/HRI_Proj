@@ -190,10 +190,11 @@ function cheatMove(){
     
     message = "WeeeeeBot: 'I won!'";
     document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
-    document.getElementById("webot").innerHTML = weebot.toString();
-    document.getElementById("you").innerHTML = you.toString();
+
     let utterance2 = new SpeechSynthesisUtterance("Wow! I won this round!");
     speechSynthesis.speak(utterance2);
+    document.getElementById("webot").innerHTML = weebot.toString();
+    document.getElementById("you").innerHTML = you.toString();
     setTimeout(() => { 
 
 
@@ -269,10 +270,11 @@ function updateRound(condition){
             message = "You lost!"
             let utterance = new SpeechSynthesisUtterance("Wow! I won this round!");
             speechSynthesis.speak(utterance);
+            document.getElementById("webot").innerHTML = weebot.toString();
+            document.getElementById("you").innerHTML = you.toString();
             setTimeout(() => {
                 document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
-                document.getElementById("webot").innerHTML = weebot.toString();
-                document.getElementById("you").innerHTML = you.toString();
+
             }, 3000);
             break;
         case 1:
@@ -280,10 +282,11 @@ function updateRound(condition){
             message = "You won!";
             let utterance1 = new SpeechSynthesisUtterance("Wow! You won this round!");
             speechSynthesis.speak(utterance1);
+            document.getElementById("webot").innerHTML = weebot.toString();
+            document.getElementById("you").innerHTML = you.toString();
             setTimeout(() => {
                 document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
-                document.getElementById("webot").innerHTML = weebot.toString();
-                document.getElementById("you").innerHTML = you.toString();
+
             }, 3000);
 
             break;
@@ -291,10 +294,11 @@ function updateRound(condition){
             message = "It's a tie!";
             let utterance2 = new SpeechSynthesisUtterance("Wow! It's a tie!");
             speechSynthesis.speak(utterance2);
+            document.getElementById("webot").innerHTML = weebot.toString();
+            document.getElementById("you").innerHTML = you.toString();
             setTimeout(() => {
                 document.getElementById("bkground").style.backgroundImage = "url('nao_ready.png')";
-                document.getElementById("webot").innerHTML = weebot.toString();
-                document.getElementById("you").innerHTML = you.toString();
+
             }, 3000);
             break;
     }
