@@ -11,9 +11,15 @@
 
     
     <script src="naoplay_pc.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     
     <!-- <title>Hello, world!</title> -->
     <style>
+
+.active {
+  background-color:#649368 !important;
+}
 .circleBase {
   border-radius: 50%;
 }
@@ -159,7 +165,7 @@
 
 /* #E5E4E2 */
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <!-- <script>
         function pageRedirect() {
         window.location.replace("webotplay.html");
@@ -196,10 +202,10 @@
         <h2 class="bottom-left" style="font-family: 'Open Sans', sans-serif; color: black;" id="round"></h2> -->
         <!-- <div id="disp" style="display:none;"> -->
           <button type="button" id="rock" style="display:none;" class="btn btn-primary" onclick="decide('rock')">
-            <img src="rock.png">
+            <img id="r" src="rock.png">
         </button>
-        <button type="button" id="paper" style="display:none;" class="btn btn-primary" onclick="decide('paper')"><img src="paper.png"></button>
-        <button type="button" id="scissors" style="display:none;" class="btn btn-primary" onclick="decide('scissors')"><img src="scissor.png"></button>
+        <button type="button" id="paper" style="display:none;" class="btn btn-primary" onclick="decide('paper')"><img id="p" src="paper.png"></button>
+        <button type="button" id="scissors" style="display:none;" class="btn btn-primary" onclick="decide('scissors')"><img id="s" src="scissor.png"></button>
         <!-- </div> -->
 
         <div id="roundM" class ="centered" style="background:#DEDEDE; padding: 20px; border-radius: 25px; text-align: center; font-size: 40px; display:none;">

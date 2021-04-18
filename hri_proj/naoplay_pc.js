@@ -50,6 +50,7 @@ function decide(user){
 }
 
 function hideButton(user){
+    document.getElementById(user).style.backgroundColor = "#649368";
     switch(user){
         case "rock":
             document.getElementById("paper").style.display = 'none';
@@ -368,6 +369,9 @@ function updateRound(condition){
                 document.getElementById("pickIt").style.display = 'block';
                 setTimeout(() => {
                     document.getElementById("pickIt").style.display = 'none';
+                    document.getElementById("rock").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("paper").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("scissors").style.backgroundColor = "#d9d7d7";
                     document.getElementById("rock").style.display = 'inline-block';
                     document.getElementById("paper").style.display = 'inline-block';
                     document.getElementById("scissors").style.display = 'inline-block';}, 1000);
