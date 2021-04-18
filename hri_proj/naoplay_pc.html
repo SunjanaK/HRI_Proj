@@ -185,22 +185,22 @@
         <span class="badge badge-secondary">New</span> -->
 
 <!-- how to fix the positioning of the bottom button  -->
-        <div class="circleBase circle1" id="circle1" style="position: absolute; text-align:center"></div>
+        <!-- <div class="circleBase circle1" id="circle1" style="position: absolute; text-align:center"></div>
         <div class="circleBase circle2" id="circle2" style="position: absolute; text-align:center"></div>
-        <div class="circleBase circle3" id = "circle3" style="position: absolute; text-align:center"></div>
+        <div class="circleBase circle3" id = "circle3" style="position: absolute; text-align:center"></div> -->
         <h1 class="top-left" style="font-family: 'Open Sans', sans-serif; color: #008000;">You</h1>
         <h2 class="top-left2" style="font-family: 'Open Sans', sans-serif; color: #008000;;" id="you"></h2>
         <h1  class="top-right" style="font-family: 'Open Sans', sans-serif; color: #8b0000;">Nao</h1>
         <h2  class="top-right2" style="font-family: 'Open Sans', sans-serif; color: #8b0000;" id="webot"></h2>
         <!-- <h1 class="bottom-left-2" style="font-family: 'Open Sans', sans-serif; color: black;">Round</h1>
         <h2 class="bottom-left" style="font-family: 'Open Sans', sans-serif; color: black;" id="round"></h2> -->
-        <div id="disp" style="display:none;">
-          <button type="button" class="btn btn-primary" onclick="processMove('rock')">
+        <!-- <div id="disp" style="display:none;"> -->
+          <button type="button" id="rock" style="display:none;" class="btn btn-primary" onclick="decide('rock')">
             <img src="rock.png">
         </button>
-        <button type="button" class="btn btn-primary" onclick="processMove('paper')"><img src="paper.png"></button>
-        <button type="button" class="btn btn-primary" onclick="processMove('scissors')"><img src="scissor.png"></button>
-        </div>
+        <button type="button" id="paper" style="display:none;" class="btn btn-primary" onclick="decide('paper')"><img src="paper.png"></button>
+        <button type="button" id="scissors" style="display:none;" class="btn btn-primary" onclick="decide('scissors')"><img src="scissor.png"></button>
+        <!-- </div> -->
 
         <div id="roundM" class ="centered" style="background:#DEDEDE; padding: 20px; border-radius: 25px; text-align: center; font-size: 40px; display:none;">
         </div> 
