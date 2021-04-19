@@ -400,10 +400,6 @@ function updateRound(condition){
             // $('.carousel').carousel(0);
     
         }
-
-
-
-
 }, 2000);
     
     

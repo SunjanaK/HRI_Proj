@@ -21,14 +21,12 @@ window.onload = function(){
         document.getElementById("pickIt").style.display = 'block';
         setTimeout(() => {
             document.getElementById("pickIt").style.display = 'none';
-            document.getElementById("disp").style.display = 'block';
-        }, 1000);
-    }, 1500)
+            document.getElementById("rock").style.display = 'inline-block';
+            document.getElementById("paper").style.display = 'inline-block';
+            document.getElementById("scissors").style.display = 'inline-block';
     
-    
-    // $('.carousel').carousel(0);
-
-    
+    }, 1000);
+    }, 1500)  
 };
 
 // after nao plays, need some pause before the messages appear again
@@ -38,9 +36,36 @@ function pageRedirect() {
     window.location.replace("final.html");
 }
 
+function decide(user){
+    processMove(user);
+
+}
+
+function hideButton(user){
+    document.getElementById(user).style.backgroundColor = "#649368";
+
+    switch(user){
+        case "rock":
+            
+            document.getElementById("paper").style.display = 'none';
+            document.getElementById("scissors").style.display = 'none';
+            break;
+        case "paper":
+            document.getElementById("p").src = 'paper_green.png';
+            document.getElementById("rock").style.display = 'none';
+            document.getElementById("scissors").style.display = 'none';
+            break;
+        case "scissors":
+            document.getElementById("s").src = 'scissor_green.png';
+            document.getElementById("paper").style.display = 'none';
+            document.getElementById("rock").style.display = 'none';
+            break; 
+
+    }
+}
 //the user's move is a string, "rock, paper, scissors"
 var processMove = function (user){
-    document.getElementById("disp").style.display = 'none';
+    hideButton(user);
     // document.getElementById("mess").style.display = 'none !important';
     //have the robot randomly make a move
     var robotMove = Math.floor((Math.random() * 3) + 1); //1 is rock, 2 is paper, 3 is scissors
@@ -118,120 +143,27 @@ var processMove = function (user){
 
 //0 if webot won the game, 1 if you won the game, 2 if there was a tie
 function updateCircle(condition){
-    if(overallRound == 3){
-        if(weebotO > youO){
-            message = "WeeeeeBot: 'Looks like I won best of three. Good game.'";
-            document.getElementById("message").style.display = 'block';
-            document.getElementById("message").innerHTML = message;
-            setTimeout("pageRedirect()", 3000);
-        }
-        else if(youO > weebotO){
-            message = "WeeeeeBot: 'Looks like you won best of three. Good game.'";
-            document.getElementById("message").style.display = 'block';
-            document.getElementById("message").innerHTML = message;
-            setTimeout("pageRedirect()", 3000);
-        }
-        else{
-            message = "WeeeeeBot: 'Looks like it's a tie. Good game.'";
-            document.getElementById("message").style.display = 'block';
-            document.getElementById("message").innerHTML = message;
-            setTimeout("pageRedirect()", 3000);
-        }
-    }
     switch(condition){
         case 0:
-            weebotO += 1;
-            document.getElementById("circle"+overallRound.toString()).style.background = "#8b0000";
-            if(weebotO == 2){
-                message = "WeeeeeBot: 'Looks like I won best of three. Good game.'";
-                document.getElementById("message").style.display = 'block';
-                document.getElementById("message").innerHTML = message;
-                setTimeout("pageRedirect()", 3000);
-            }
-            else{
-                message = "WeeeeeBot: 'Looks like I won this game!'";
-                document.getElementById("message").style.display = 'block';
-                document.getElementById("message").innerHTML = message;
-                setTimeout(()=> {
-                    round = 1;
-                    weebot = 0;
-                    you = 0;
-                    document.getElementById("message").style.display = 'none';
-                    document.getElementById("bkground").style.backgroundImage = "url('webot_ready.png')";
-                    document.getElementById("webot").innerHTML = weebot.toString();
-                    document.getElementById("you").innerHTML = you.toString();
-                    document.getElementById("roundM").innerHTML = "Round" + round.toString();
-                    document.getElementById("roundM").style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById("roundM").style.display = 'none';
-                        document.getElementById("pickIt").style.display = 'block';
-                        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
-                        document.getElementById("disp").style.display = 'block';}, 1000);
-                    }, 1500)
-                }, 2500);
-            }
-            
+            message = "WeeeeeBot: 'Looks like I won best of three. Good job.'";
+            document.getElementById("message").style.display = 'block';
+            document.getElementById("message").innerHTML = message;
+            setTimeout("pageRedirect()", 3000);
             break;
         case 1:
-            youO += 1;
-            document.getElementById("circle"+overallRound.toString()).style.background = "#008000";
-            if(youO == 2){
-                message = "WeeeeeBot: 'Looks like you won best of three. Good game.'";
-                document.getElementById("message").style.display = 'block';
-                document.getElementById("message").innerHTML = message;
-                setTimeout("pageRedirect()", 3000);
-            }
-            else{
-                message = "WeeeeeBot: 'Looks like you won this game!'";
-                document.getElementById("message").style.display = 'block';
-                document.getElementById("message").innerHTML = message;
-                setTimeout(()=> {
-                    round = 1;
-                    weebot = 0;
-                    you = 0;
-                    document.getElementById("message").style.display = 'none';
-                    document.getElementById("bkground").style.backgroundImage = "url('webot_ready.png')";
-                    document.getElementById("webot").innerHTML = weebot.toString();
-                    document.getElementById("you").innerHTML = you.toString();
-                    document.getElementById("roundM").innerHTML = "Round" + round.toString();
-                    document.getElementById("roundM").style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById("roundM").style.display = 'none';
-                        document.getElementById("pickIt").style.display = 'block';
-                        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
-                        document.getElementById("disp").style.display = 'block';}, 1000);
-                    }, 1500)
-                }, 2500);
-            }
+            message = "WeeeeeBot: 'Looks like you won the most rounds! Good job.'";
+            document.getElementById("message").style.display = 'block';
+            document.getElementById("message").innerHTML = message;
+            setTimeout("pageRedirect()", 3000);
             break;
         case 2:
             document.getElementById("circle"+overallRound.toString()).style.background = "black";
-            message = "WeeeeeBot: 'Looks like this game is a tie!'";
+            message = "WeeeeeBot: 'Looks like we won an equal number of rounds. Good job!'";
             document.getElementById("message").style.display = 'block';
             document.getElementById("message").innerHTML = message;
-
-                setTimeout(()=> {
-                    round = 1;
-                    weebot = 0;
-                    you = 0;
-                    document.getElementById("message").style.display = 'none';
-                    document.getElementById("bkground").style.backgroundImage = "url('webot_ready.png')";
-                    document.getElementById("webot").innerHTML = weebot.toString();
-                    document.getElementById("you").innerHTML = you.toString();
-                    document.getElementById("roundM").innerHTML = "Round" + round.toString();
-                    document.getElementById("roundM").style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById("roundM").style.display = 'none';
-                        document.getElementById("pickIt").style.display = 'block';
-                        setTimeout(() => {document.getElementById("pickIt").style.display = 'none';
-                        document.getElementById("disp").style.display = 'block';}, 1000);
-                    }, 1500)
-                }, 2500);
+            setTimeout("pageRedirect()", 3000);
             break;
-    }
-
-    overallRound += 1;
-   
+    }   
 }
 
 
@@ -261,7 +193,9 @@ function updateRound(condition){
     document.getElementById("message").innerHTML = message;
     setTimeout(() => { 
         document.getElementById("message").style.display = 'none'; 
-        if(round == 3){
+        if(round == 20){
+            document.getElementById("webot").innerHTML = weebot.toString();
+            document.getElementById("you").innerHTML = you.toString();
             // document.getElementById("final").style.display = 'block';
             if(you > weebot){
                 updateCircle(1);
@@ -283,16 +217,24 @@ function updateRound(condition){
         else{
             round += 1;
             // document.getElementById("round").innerHTML = round.toString();
-            document.getElementById("roundM").innerHTML = "Round" + round.toString();
+            document.getElementById("roundM").innerHTML = "Round " + round.toString() + "/20";
             document.getElementById("roundM").style.display = 'block';
             setTimeout(() => {
                 document.getElementById("roundM").style.display = 'none';
                 document.getElementById("pickIt").style.display = 'block';
                 setTimeout(() => {
                     document.getElementById("pickIt").style.display = 'none';
-                    document.getElementById("disp").style.display = 'block';
-                }, 1000);
-            }, 1500)
+                    document.getElementById("p").src = 'paper.png';
+                    document.getElementById("r").src = 'rock.png';
+                    document.getElementById("s").src = 'scissor.png';
+                    document.getElementById("rock").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("paper").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("scissors").style.backgroundColor = "#d9d7d7";
+                    document.getElementById("rock").style.display = 'inline-block';
+                    document.getElementById("paper").style.display = 'inline-block';
+                    document.getElementById("scissors").style.display = 'inline-block';}, 1000);
+                // document.getElementById("disp").style.display = 'block';}, 1000);
+            }, 1500);
             // $('.carousel').carousel(0);
     
         }
