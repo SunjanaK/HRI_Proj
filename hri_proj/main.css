@@ -8,16 +8,22 @@ Body
 
 body {
   height: 100vh;
-  margin: 0;
+  margin: auto;
   background: #DEDEDE;
   color: #5a6674;
   font-size: 13px;
   font-family: 'Roboto', sans-serif;
-  overflow: hidden; }
+  overflow: hidden; 
+  text-align: center;
+}
 
 /*--------------------
 App
 --------------------*/
+#form {
+  text-align: center;
+}
+
 .search-form {
   position: relative;
   top: 50%;
