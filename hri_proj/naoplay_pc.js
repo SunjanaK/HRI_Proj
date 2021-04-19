@@ -12,24 +12,28 @@ var yourMove;
 //cheat on rounds 4, 8, 15
 
 window.onload = function(){
-    document.getElementById("webot").innerHTML = weebot.toString();
-    document.getElementById("you").innerHTML = you.toString();
-    // document.getElementById("round").innerHTML = round.toString();
-    document.getElementById("roundM").innerHTML = "Round 1/20";
-    document.getElementById("roundM").style.display = 'block';
     setTimeout(() => {
-        document.getElementById("roundM").style.display = 'none';
-        document.getElementById("pickIt").style.display = 'block';
+        document.getElementById("webot").innerHTML = weebot.toString();
+        document.getElementById("you").innerHTML = you.toString();
+        // document.getElementById("round").innerHTML = round.toString();
+        document.getElementById("roundM").innerHTML = "Round 1/20";
+        document.getElementById("roundM").style.display = 'block';
         setTimeout(() => {
-            document.getElementById("pickIt").style.display = 'none';
-            document.getElementById("rock").style.display = 'inline-block';
-            document.getElementById("paper").style.display = 'inline-block';
-            document.getElementById("scissors").style.display = 'inline-block';
+            document.getElementById("roundM").style.display = 'none';
+            document.getElementById("pickIt").style.display = 'block';
+            setTimeout(() => {
+                document.getElementById("pickIt").style.display = 'none';
+                document.getElementById("rock").style.display = 'inline-block';
+                document.getElementById("paper").style.display = 'inline-block';
+                document.getElementById("scissors").style.display = 'inline-block';
+        
         }, 1000);
-    }, 1500)
-    // $('.carousel').carousel(0);
+        }, 1500); 
 
-    
+
+
+    }, 1000);
+ 
 };
 
 // after nao plays, need some pause before the messages appear again
